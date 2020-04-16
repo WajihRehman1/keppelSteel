@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Keppel Steel</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static "style.css"%}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Flexor - v2.0.0
+  * Template URL: https://bootstrapmade.com/flexor-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+ <header id="header">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{%url 'basic_app:index'%}"><span>Keppel</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{%url 'basic_app:index'%}">Home</a></li>
+          <li><a href="#services">Services</a></li>
+
+<!--          <li><a href="{%url 'admin:index'%}">Admin</a></li>-->
+          {% if request.user.is_authenticated %}
+                <li><a href="{%url 'basic_app:createSvc'%}">Create Service</a></li>
+                <li><a href="{%url 'basic_app:createProduct'%}">Add Product</a></li>
+                <li class="nav-item"><a class="nav-link" href="{%url 'logout'%}">Logout</a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{%url 'basic_app:login'%}">Login</a></li>
+            {% endif %}
+          <li><a href="#contact">Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <ul>
+          <li><i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@example.com</a></li>
+          <li><i class="icofont-phone"></i> +92 300 5278056</li>
+          <li><i class="icofont-clock-time icofont-flip-horizontal"></i> Mon-Fri 9am - 5pm</li>
+        </ul>
+
+      </div>
+
+  </section>
+
+{%block body_block%}
+
+{%endblock%}
+
+
+ <!-- Footer -->
+<footer class="page-footer font-small bg-dark pt-4" id="contact">
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto">
+
+        <!-- Content -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-light">Business Address</h5>
+        <p class="text-light">EPB Plaza Plot no 19 behind bank Alfala Pak PWD Islamabad</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+        <br>
+        <br>
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item">
+      <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com/rumman.iftikhar">
+        <i class="fab fa-facebook-f text-primary" style='font-size:40px;'> </i>
+      </a>
+    </li>
+
+    <li class="list-inline-item">
+      <a class="btn-floating btn-gplus mx-1" >
+        <i class="fab fa-google-plus-g text-danger" style='font-size:40px;'> </i>
+      </a>
+    </li>
+
+    <li class="list-inline-item">
+      <a class="btn-floating btn-dribbble mx-1" href="tel:+923005278056">
+          <i class='fas fa-phone-alt' style='font-size:35px;color:yellow'></i>
+
+      </a>
+    </li>
+  </ul>
+
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <hr>
+
+
+  <!-- Call to action -->
+
+  <hr>
+
+  <!-- Social buttons -->
+
+  <!-- Social buttons -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
+    <a href="datatines.pythonanywhere.com "> DATA-TINES</a>
+     <p class="text-white">A project of DATA-TINES</p>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  <!-- Template Main JS File -->
+  <script src="{%static "main.js"%}"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

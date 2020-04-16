@@ -1,0 +1,120 @@
+{%extends 'basic_app/base.html'%}
+{%block body_block%}
+  <!-- ======= Header ======= -->
+{%load static%}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center" style="background-image:url({%static 'cover.jpg'%});background-size:cover">
+    <div class="container" data-aos="fade-in" >
+      <h1>Welcome to Keppel Steel Works</h1>
+      <h2>Your Satisfaction is our Priority</h2>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xl-4 col-lg-5" data-aos="fade-up">
+            <div class="content">
+              <h3>Why Choose Keppel ?</h3>
+              <p>
+                Keppel steel is the most reliable and effective private sector
+                steel manufacturer in Pakistan. Our focus is quality of work.
+                We actively respond to changing customer’s demands and expectations,
+                the Company introduced innovative products without compromising on quality.
+                We pay special attention on customer requirements, efficient design, safety, quality, cost and schedule.
+              </p>
+              <div class="text-center">
+                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-8 col-lg-7 d-flex">
+            <div class="icon-boxes d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-receipt"></i>
+                    <h4>Our Standards</h4>
+                    <p>XYZ</p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-cube-alt"></i>
+                    <h4>Our Our Pricing</h4>
+                    <p>Our prices are competitive and
+                      There are no surprise bills. Any unexpected or additional expenses must be pre-approved by you. </p>
+                  </div>
+                </div>
+                <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                  <div class="icon-box mt-4 mt-xl-0">
+                    <i class="bx bx-images"></i>
+                    <h4>Our Quality</h4>
+                    <p>XYZ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container" data-aos="fade-up">
+
+        <div class="owl-carousel clients-carousel">
+          <img src="assets/img/clients/client-1.png" alt="">
+          <img src="assets/img/clients/client-2.png" alt="">
+          <img src="assets/img/clients/client-3.png" alt="">
+          <img src="assets/img/clients/client-4.png" alt="">
+          <img src="assets/img/clients/client-5.png" alt="">
+          <img src="assets/img/clients/client-6.png" alt="">
+          <img src="assets/img/clients/client-7.png" alt="">
+          <img src="assets/img/clients/client-8.png" alt="">
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>Magnam dolores commodi suscipit
+            . Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+
+        <div class="row">
+
+           {%for service in obj%}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="icon-box">
+              <div class="icon"><img src="/media/{{service.picture}}" class="rounded-circle z-depth-1" alt="Sample avatar" style="width:75px ;height:75px;"></div>
+              <h4 class="title"><a href="{{service.id}}">{{service.name}}</a></h4>
+              <p class="description">{{service.description}}</p>
+              {% if request.user.is_authenticated %}
+              <div class="container">
+                  <p><a class="btn btn-warning" href="{%url 'basic_app:update' pk=service.id%}">Edit Service</a></p>
+              </div>
+              {%endif%}
+            </div>
+          </div>
+        {%endfor%}
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+{%endblock%}

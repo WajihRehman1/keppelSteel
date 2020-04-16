@@ -1,0 +1,21 @@
+{%extends 'basic_app/base.html'%}
+{%block body_block%}
+
+<form method="POST" enctype="multipart/form-data" class="d-flex justify-content-center">
+
+    {%csrf_token%}
+    <div class="jumbotron ">
+           <h1 class="d-flex justify-content-center">
+        {%if not form.instance.pk%}
+        Create New Service
+        {%else%}
+        Edit Service
+        {%endif%}
+    </h1>
+    {{form.as_p}}
+        <div class="d-flex justify-content-end"><input type="submit" class="btn btn-success" value="Submit"></div>
+    </div>
+
+</form>
+
+{%endblock%}

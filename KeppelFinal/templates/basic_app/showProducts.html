@@ -1,0 +1,38 @@
+{%extends 'basic_app/base.html'%}
+{%block body_block%}
+
+<div class="jumbotron text-center my-5">
+    <h1>Our {{myObj.name}}</h1>
+    <section class="team-section text-center my-5">
+  <!-- Grid row -->
+  <div class="row text-center my-5 ">
+    <!-- Grid column -->
+       {%for obj in myObj.myService.all%}
+    <div class="col-lg-3 col-md-6 mb-lg-0 mb-5 ">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/media/{{obj.picture}}" alt="Card image cap">
+            <div class="card-body">
+            <h1>{{obj.title}}</h1>
+            <h5 class="card-title">{{obj.name}}</h5>
+            <h5 class="card-title">{{obj.Service}}</h5>
+            <p class="card-text">{{obj.description}}</p>
+             {% if request.user.is_authenticated %}
+              <div class="container d-flex flex-row d-flex justify-content-center">
+                  <p><a class="btn btn-warning" href="{%url 'basic_app:updateProduct' pk=obj.id%}">Edit Product</a></p>
+                  <p><a class="btn btn-danger" href="{%url 'basic_app:deleteProduct' pk=obj.id%}">Delete Product</a></p>
+              </div>
+              {%endif%}
+          </div>
+        </div>
+    </div>
+
+       {%endfor%}
+  </div>
+
+            </section>
+    </div>
+
+
+
+
+{%endblock%}
